@@ -1,0 +1,9 @@
+<ul>
+  <%  _.each(obj.models, function(row) { %> 
+  <li>
+    <% _.each(row.cels, function(cel) { %> 
+    <div class="celwrapper" id="<%= cel.identity() %>"></div>
+    <% }); %>
+  </li>
+  <% }); %>
+</ul>  

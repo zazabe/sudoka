@@ -1,0 +1,21 @@
+<% var pos = obj.get('possibilities').length; %>
+<div class="cel
+            <%= pos > 1 ? 'many' : (pos == 0 && obj.get('value') == '' ? 'none' : (obj.get('value') != '' ? '' : 'one')) %> 
+            square-<%= obj.get('s').id % 2 ? 'gray' : 'black' %>
+            <%= obj.isLocked() ? 'locked' : '' %>">
+
+	<input type="text" value="<%= obj.get('value') %>" />
+	<div class="info">
+	<% 
+	
+	if(!obj.isLocked()){ 
+	    _.each(obj.get('forbidden'), function(val){ %>
+	        <span class="forbidden"><%= val %></span>
+	   <% });
+	    _.each(obj.get('possibilities'), function(val){ %>
+	        <span class="possibilities"><%= val %></span>
+	   <% });
+	}
+	%>
+	</span>
+</div>

@@ -1,0 +1,6 @@
+<% 
+var model = null; 
+for(var i = obj.length-1 ; i >= 0 ; i--){ 
+model = obj.at(i); %>
+<li>add <%= model.get('val') %> (<%= model.get('cel').get('forbidden').join(',') %> / <%= model.get('cel').get('possibilities').join(',')  %> ) in history, <%= model.get('single') ? 'single' : 'multiple' %> value allowed</li>
+<%}%>

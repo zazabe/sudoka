@@ -5,7 +5,7 @@ require.config({
     // Major libraries
     jquery: 'libs/jquery/jquery-min',
     underscore: 'libs/underscore/underscore-min', // https://github.com/amdjs
-    backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
+    backbone: 'libs/backbone/backbone', // https://github.com/amdjs
 
     // Require.js plugins
     text: 'libs/require/text',
@@ -23,15 +23,18 @@ var sodoku = null;
 require([
   'jquery',
   'collections/cels',
+  'collections/changes',
   'views/sudoku',
-  'libs/hack/jquery'
-  
-], function($, Cels, Sudoku){
+  'views/controls'
+], function($, Cels, changes, Sudoku, Controls){
 	//create all cels
-	sudoku = new Sudoku({
-		collection: Cels
+	var sudoku = new Sudoku({
+		collection: Cels,
+		history: changes
 	});
 	
-	
+	var controls = new Controls({
+		sudoku: sudoku
+	});
 	
 });
